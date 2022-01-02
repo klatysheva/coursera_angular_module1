@@ -12,12 +12,15 @@
 
         $scope.checkIfTooMuch = function () {
             $scope.foodCount = $scope.countFood();
-            if ($scope.foodCount  > 3) {
+            if ($scope.food == "") {
+                $scope.msg = "Please enter data first"
+            }
+            else {if ($scope.foodCount  > 3) {
                 $scope.msg = "Too much!"
             }
             else {
                 $scope.msg = "Enjoy!"
-            }
+            }}
         };
 
         $scope.countFood = function () {
