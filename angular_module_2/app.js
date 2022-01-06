@@ -11,10 +11,16 @@
   function ToBuyController(ShoppingListCheckOffService) {
     var toBuyList = this;
 
+    toBuyList.isEmpty = false;
     toBuyList.items = ShoppingListCheckOffService.getItemsToBuy();
 
     toBuyList.buyItem = function (itemIndex) {
       ShoppingListCheckOffService.buyItem(itemIndex);
+      toBuyList.isEmpty = ShoppingListCheckOffService.getIsNothingToBuy();
+      console.log(toBuyList.isEmpty);
+      // if (ShoppingListCheckOffService.getItemsToBuy().length === 0 ) {
+      //   toBuyList.isEmpty = true;
+      // }
     };
   }
 
@@ -22,6 +28,7 @@
   function AlreadyBoughtController(ShoppingListCheckOffService) {
     var alreadyBoughtList = this;
 
+    alreadyBoughtList.isNotEmpty = false;
     alreadyBoughtList.items = ShoppingListCheckOffService.getBoughtItems();
 
   }
@@ -54,8 +61,19 @@
 
     var boughtItems = [];
 
+    var isNothingToBuy = false;
+    var isSomethingBought = false;
+
     service.getItemsToBuy = function () {
       return itemsToBuy;
+    };
+
+    service.getIsNothingToBuy = function () {
+      return isNothingToBuy;
+    };
+
+    service.getIsSomethingBought = function () {
+      return isSomethingBought;
     };
 
     service.getBoughtItems = function () {
@@ -69,6 +87,12 @@
       };
       itemsToBuy.splice(itemIndex, 1);
       boughtItems.push(item);
+      if (itemsToBuy.length === 0) {
+        isNothingToBuy = true;
+      }
+      if (boughtItems.length !== 0) {
+        isSomethingBought = true;
+      }
     };
   }
 
