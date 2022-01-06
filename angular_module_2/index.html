@@ -41,7 +41,7 @@
                       <button ng-click="toBuyList.buyItem($index);">Buy</button>
                   </li>
               </ol>
-              <div ng-if="toBuyList.isEmpty" class="emptyMessage">Everything is bought!</div>
+              <div ng-if="toBuyList.getIsEmpty();" class="emptyMessage">Everything is bought!</div>
           </div>
           <div id="alreadyBoughtList" class="col-md-6" ng-controller='AlreadyBoughtController as alreadyBoughtList'>
               <h2>Already Bought:</h2>

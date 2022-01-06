@@ -11,12 +11,14 @@
   function ToBuyController(ShoppingListCheckOffService) {
     var toBuyList = this;
 
-    toBuyList.isEmpty = false;
     toBuyList.items = ShoppingListCheckOffService.getItemsToBuy();
 
     toBuyList.buyItem = function (itemIndex) {
       ShoppingListCheckOffService.buyItem(itemIndex);
-      toBuyList.isEmpty = ShoppingListCheckOffService.getIsNothingToBuy();
+    };
+
+    toBuyList.getIsEmpty = function () {
+      return ShoppingListCheckOffService.getIsNothingToBuy();
     };
   }
 
@@ -24,12 +26,10 @@
   function AlreadyBoughtController(ShoppingListCheckOffService) {
     var alreadyBoughtList = this;
 
-    alreadyBoughtList.isNotEmpty = false;
     alreadyBoughtList.items = ShoppingListCheckOffService.getBoughtItems();
 
     alreadyBoughtList.getIsNotEmpty = function () {
-      alreadyBoughtList.isNotEmpty = ShoppingListCheckOffService.getIsSomethingBought();
-      return alreadyBoughtList.isNotEmpty;
+      return ShoppingListCheckOffService.getIsSomethingBought();
     };
 
   }
