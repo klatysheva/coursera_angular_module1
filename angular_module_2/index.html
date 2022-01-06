@@ -50,7 +50,7 @@
                       Bought {{ item.quantity }} {{ item.name }}(s)
                   </li>
               </ol>
-              <div ng-if="alreadyBoughtList.isNotEmpty" class="emptyMessage">Nothing bought yet.</div>
+              <div ng-if="!alreadyBoughtList.getIsNotEmpty();" class="emptyMessage">Nothing bought yet.</div>
           </div>
       </div>
   </div>

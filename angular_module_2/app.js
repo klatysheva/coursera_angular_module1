@@ -17,10 +17,6 @@
     toBuyList.buyItem = function (itemIndex) {
       ShoppingListCheckOffService.buyItem(itemIndex);
       toBuyList.isEmpty = ShoppingListCheckOffService.getIsNothingToBuy();
-      console.log(toBuyList.isEmpty);
-      // if (ShoppingListCheckOffService.getItemsToBuy().length === 0 ) {
-      //   toBuyList.isEmpty = true;
-      // }
     };
   }
 
@@ -30,6 +26,11 @@
 
     alreadyBoughtList.isNotEmpty = false;
     alreadyBoughtList.items = ShoppingListCheckOffService.getBoughtItems();
+
+    alreadyBoughtList.getIsNotEmpty = function () {
+      alreadyBoughtList.isNotEmpty = ShoppingListCheckOffService.getIsSomethingBought();
+      return alreadyBoughtList.isNotEmpty;
+    };
 
   }
 
@@ -90,6 +91,7 @@
       if (itemsToBuy.length === 0) {
         isNothingToBuy = true;
       }
+      console.log(boughtItems.length);
       if (boughtItems.length !== 0) {
         isSomethingBought = true;
       }
