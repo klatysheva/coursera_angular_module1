@@ -91,7 +91,6 @@
       if (itemsToBuy.length === 0) {
         isNothingToBuy = true;
       }
-      console.log(boughtItems.length);
       if (boughtItems.length !== 0) {
         isSomethingBought = true;
       }
