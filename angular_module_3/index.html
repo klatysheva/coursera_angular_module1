@@ -21,7 +21,7 @@
         <br><br><br>
         <ol>
             <found-items ng-repeat="item in narrowCtrl.items"></found-items>
-            <div ng-if="(narrowCtrl.items.length === 0) || narrowCtrl.searchedTerm === ''" class="error">Nothing found</div>
+            <div ng-if="(narrowCtrl.items.length === 0)" class="error">Nothing found</div>
         </ol>
     </div>
 
