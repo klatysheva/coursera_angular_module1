@@ -1,0 +1,15 @@
+<fieldset>
+    <legend class="legend">Your data</legend>
+    <section id="user-info" class="user-info" >
+        <span>Firstname: {{userInfoCtrl.user.firstname}}</span> <br>
+        Lastname: {{userInfoCtrl.user.lastname}} <br>
+        Email: {{userInfoCtrl.user.email}} <br>
+        Phonenumber: {{userInfoCtrl.user.phoneNumber}} <br>
+        Favorite dish: {{userInfoCtrl.user.favoriteDish}}
+        <img class="img-responsive" width="250" height="150"
+             ng-if="userInfoCtrl.userSaved"
+             ng-src="https://klatysheva-angularjs.herokuapp.com/images/{{userInfoCtrl.user.favoriteDish}}.jpg"
+             src="https://klatysheva-angularjs.herokuapp.com/images/{{userInfoCtrl.user.favoriteDish}}.jpg">
+        <hr class="visible-xs">
+    </section>
+</fieldset>
