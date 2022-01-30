@@ -1,7 +1,9 @@
 <fieldset>
     <legend class="legend">Your info</legend>
 
-    <span class="legend">Not Signed Up Yet.</span>
+    <span class="legend"
+          ng-if="!userInfoCtrl.userSaved">
+        Not Signed Up Yet.</span>
     <a ui-sref="public.sign-up"
        class="legend"
        ng-if="!userInfoCtrl.userSaved">
@@ -15,8 +17,7 @@
         Phonenumber: {{userInfoCtrl.user.phoneNumber}} <br>
         Favorite dish: {{userInfoCtrl.user.favoriteDish}}
         <img class="img-responsive" width="250" height="150"
-             ng-src="https://klatysheva-angularjs.herokuapp.com/images/{{userInfoCtrl.user.favoriteDish}}.jpg"
-             src="https://klatysheva-angularjs.herokuapp.com/images/{{userInfoCtrl.user.favoriteDish}}.jpg">
+             ng-src="https://klatysheva-angularjs.herokuapp.com/images/{{userInfoCtrl.user.favoriteDish}}.jpg">
         <hr class="visible-xs">
     </section>
 </fieldset>
